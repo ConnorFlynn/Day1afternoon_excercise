@@ -1,0 +1,85 @@
+---
+title: "Day1_Afternoon_Interactive"
+author: "Connor Flynn"
+date: "8/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#library(tidyverse)
+
+```
+
+### Logs and Exponents in R
+Some examples of using `log()` function and `exp()` **function** in R
+
+```{r}
+#Examples of logarithms
+
+log(4)
+
+#Examples of exponents
+exp(5)
+
+#A test of a log()
+log(exp(1))
+```
+### Creating sequences of values
+
+?seq
+
+```{r}
+#A sequence from 1 20, by 1
+
+ex_1 <- seq(from = 1, to = 20, by =1)
+
+#Vector from 0 to 40 by increments of 0.2
+ex_3 <- seq(from = 0, to = 40, by  =0.2)
+
+#Vector from 1 to 5000 by increments of 10
+ex_4 <- seq(from = 1, to = 5000, by = 10)
+```
+
+###Create a function for logistic growth
+Given the carrying capacity, initial population, the growth rate, and time, use the logistic growth model to estimate the population at that time.
+
+```{r}
+pop_logisitc <- function(capacity, initial_pop, growth_rate, time_year){
+  
+  capacity/ (1+((capacity-initial_pop)/initial_pop)*exp(-growth_rate * time_year))
+  
+}
+
+pop_logisitc(capacity = 2580, initial_pop = 230, growth_rate = 0.32, time_year = 2.4)
+```
+
+```{r}
+#Create a vector of times from 0 to 20 by increments of 0.5
+
+time_vec <- seq(from = 0, to = 20, by = 0.5)
+```
+
+Now let's estimate the population over that range of times, given capacity = 2,580, initial population = 230, rate = 0.32
+
+```{r}
+chipmunk_pop <- pop_logisitc(capacity = 2580, initial_pop = 230, growth_rate = 0.32, time_year = time_vec)
+```
+
+### Create a data frame and plot chipmunk population over time
+
+```{r}
+chipmunk_df <- data.frame(time_vec, chipmunk_pop)
+
+```
+
+
+###Create a bare minimum ggplot graph:
+
+```{r}
+
+#ggplot(data=chipmunk_df, aes(x = time_vec, y = chipmunk_pop)) + 
+#  geom_point()
+```
+
