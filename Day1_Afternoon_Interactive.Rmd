@@ -8,7 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-#library(tidyverse)
+library(tidyverse)
 
 ```
 
@@ -79,7 +79,7 @@ chipmunk_df <- data.frame(time_vec, chipmunk_pop)
 
 ```{r}
 
-#ggplot(data=chipmunk_df, aes(x = time_vec, y = chipmunk_pop)) + 
- # geom_point()
+ggplot(data=chipmunk_df, aes(x = time_vec, y = chipmunk_pop)) + 
+ geom_point()
 ```
 
