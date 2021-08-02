@@ -80,6 +80,6 @@ chipmunk_df <- data.frame(time_vec, chipmunk_pop)
 ```{r}
 
 #ggplot(data=chipmunk_df, aes(x = time_vec, y = chipmunk_pop)) + 
-#  geom_point()
+ # geom_point()
 ```
 
